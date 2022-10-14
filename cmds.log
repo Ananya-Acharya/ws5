@@ -1,0 +1,14 @@
+ 1000  cd ws5
+ 1001  cut -f 2 amazon_reviews_us_Books_v1_02.tsv | sort | uniq -c | sort -nr > amzn_reviews.tsv
+ 1002  head -5 amzn_reviews.tsv 
+ 1003  awk '{print $2}' amzn_reviews.tsv > temp.txt
+ 1004  head -1000 temp.txt > searchfile.txt
+ 1005  head -5 searchfile.txt
+ 1006  cut -f 2,14 amazon_reviews_us_Books_v1_02.tsv > reviews.tsv
+ 1007  mkdir CUSTOMERS
+ 1008  for i in {1...1000}; do k = `sed -n "${i}{p}" searchfile.txt`; grep $k reviews.tsv > CUSTOMERS/"$k.txt"; done
+ 1009  for i in {1...1000}; do k=`sed -n "${i}{p}" searchfile.txt;
+ 1010  for i in {1...1000}; do k=`sed -n "${i}{p}" searchfile.txt`; grep $k reviews.tsv > CUSTOMERS/"$k.txt"; done
+ 1011  for i in {1..1000}; do k=`sed -n ${i}{p}" searchfile.txt`; grep $k reviews.tsv > CUSTOMERS/"$k.txt"; done
+ 1012  for i in {1..1000}; do k=`sed -n "${i}{p}" searchfile.txt`; grep $k reviews.tsv > CUSTOMERS/"$k.txt"; done
+ 1013  history > cmds.log
